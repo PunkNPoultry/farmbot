@@ -7,7 +7,7 @@ class Item(models.Model):
     price = models.DecimalField('price per unit', max_digits=6, decimal_places=2)
     quantity = models.PositiveIntegerField('quantity on hand', default=0)
     description = models.TextField(default='')
-    updated_at = models.DateTimeField('inventory last updated at')
+    updated_at = models.DateTimeField('inventory last updated at', auto_now=True)
 
     def __str__(self):
         return self.name
