@@ -39,6 +39,7 @@ def inventory(request):
     items = Item.objects.all()
     last_updated = items.aggregate(Max('updated_at'))['updated_at__max']
     data = {
+        "response_type": "in_channel",
         "text": "Current inventory as of *_{}_*".format(last_updated.date()),
         "attachments": list(map(convert_item_to_attachment, items))
     }
