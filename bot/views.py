@@ -93,9 +93,9 @@ def farm(request):
 
     logger.info("Incoming farm request: {}".format(request.POST))
     text = request.POST['text'].strip().lower()
-    if text.startswith('inv'):
+    if text.startswith('i'):
         return inventory(request)
-    elif text.startswith('order'):
+    elif text.startswith('o'):
         return order(request)
     else:
         return help()
