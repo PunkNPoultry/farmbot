@@ -40,7 +40,7 @@ def inventory(request):
     last_updated = items.aggregate(Max('updated_at'))['updated_at__max']
     data = {
         "response_type": "in_channel",
-        "text": "Current inventory as of *_{}_*".format(last_updated.date()),
+        "text": "Current inventory as of *_{}_*\nPayment methods: cash or <https://cash.me/$punknpoultry>".format(last_updated.date()),
         "attachments": list(map(convert_item_to_attachment, items))
     }
     return JsonResponse(data)
